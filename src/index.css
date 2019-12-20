@@ -36,4 +36,28 @@ main {
 
 header h1 {
   text-align: center;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: beige;
+}
+
+a:nth-child(odd) {
+  background-color: lightcyan;
+  width: 100%;
+  text-align: center;
+  border-bottom: dashed black 1px;
+}
+
+a:nth-child(even) {
+  background-color: lightgray;
+  width: 100%;
+  text-align: center;
+  border-bottom: dashed black 1px;
+}
+
+a:hover {
+  background-color: beige;
 }
