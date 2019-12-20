@@ -1,14 +1,19 @@
 import React from "react";
+import {Card, Stat, StatContainer} from "../Styles.js"
 
 export default function CharacterCard(props) {
-  const {name, status, species, gender} = props.char;
+  const {name, status, species, gender, type} = props.char;
   
   return (
-    <div>
-        <p>Name: {name}</p>
-        <p>Status: {status}</p>
-        <p>Species: {species}</p>
-        <p>Gender: {gender}</p>
-    </div>
+    <Card>
+        <StatContainer>{name}</StatContainer>
+        <StatContainer>
+          <Stat>Status: {status}</Stat>
+          <Stat>Species: {species}</Stat>
+          <Stat>Type: {type}</Stat>
+          <Stat>Gender: {gender}</Stat>
+        </StatContainer>
+        
+    </Card>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import {Link} from "react-router-dom";
-import CharacterCard from "./CharacterCard";
+import {IndividualList, MainContainer, CharacterListContainer, SearchForm} from "../Styles";
 
 export default function CharacterList() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -29,8 +29,8 @@ export default function CharacterList() {
   }, [searchTerm]);
 
   return (
-    <section className="character-list">
-      <form>
+    <MainContainer>
+      <SearchForm>
         <label htmlFor="search">Search for a character: </label>
         <input
           id="search"
@@ -40,13 +40,18 @@ export default function CharacterList() {
           value={searchTerm}
           onChange={handleChange}
         />
-      </form>
+      </SearchForm>
 
-      {searchResults.map(char => (
-        <Link to={`/character/${char.id}`}>
-          <CharacterCard key={char.id} id={char.id} char={char}/>
-        </Link>
-      ))}
-    </section>
+      <CharacterListContainer>
+        {searchResults.map(char => (
+          <Link to={`/character/${char.id}`}>
+            <IndividualList>
+              {char.name}
+            </IndividualList>
+          </Link>
+        ))}
+      </CharacterListContainer>
+      
+    </MainContainer>
   );
 }
